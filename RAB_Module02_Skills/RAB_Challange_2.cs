@@ -38,14 +38,16 @@ namespace RAB_Module02_Skills
             List<CurveElement> modelCurves = new List<CurveElement>();
             foreach (Element elem in pickList)
             {
-                if (elem is CurveElement)
-                {
-                    CurveElement curveElem = elem as CurveElement;
-                    if (curveElem.CurveElementType == CurveElementType.ModelCurve)
-                    {
-                        modelCurves.Add(elem as CurveElement);
-                    }
-                }
+                if (elem is CurveElement curve)
+                    modelCurves.Add(curve);
+                //if (elem is CurveElement)
+                //{
+                //    CurveElement curveElem = elem as CurveElement;
+                //    if (curveElem.CurveElementType == CurveElementType.ModelCurve)
+                //    {
+                //        modelCurves.Add(elem as CurveElement);
+                //    }
+                //}
             }
 
             using (Transaction trans = new Transaction(doc, "Create Walls, Ducts, and Pipes"))
